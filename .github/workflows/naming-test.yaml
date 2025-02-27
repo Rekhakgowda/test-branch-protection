@@ -1,0 +1,18 @@
+name: Enforce PR Source Branch Naming
+
+on:
+  pull_request:
+    branches:
+      - test-bp1
+
+jobs:
+  check_branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR Source Branch Name
+        run: |
+          PR_BRANCH=${{ github.head_ref }}
+          if [[ ! $PR_BRANCH =~ ^feature/test-bp.* ]]; then
+            echo "Error: PR must be created from a branch starting with 'feature/test-bp*'"
+            exit 1
+          fi
