@@ -1,4 +1,15 @@
-- name: Modify YAML File on PR
+name: Enforce PR Source Branch Naming
+
+on:
+  pull_request:
+    branches:
+      - dynamic-variable-qa
+
+jobs:
+  dynamic_variable_update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Modify YAML File on PR
   if: github.event_name == 'pull_request'  # Run only for PRs
   run: |
     python <<EOF
