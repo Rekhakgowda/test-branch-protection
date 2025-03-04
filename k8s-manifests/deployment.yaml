@@ -5,4 +5,5 @@ metadata:
   namespace: test-dv
 data:
   NEW_RELIC_APP_NAME: my-genie-${env}
+  TEST_LINE: Testline
 
