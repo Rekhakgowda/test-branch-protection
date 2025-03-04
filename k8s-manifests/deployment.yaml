@@ -1,0 +1,7 @@
+apiVersion: V1
+kind: ConfigMap
+metadata:
+  name: test-dynamic-variable
+  namespace: test-dv
+data:
+  NEW_RELIC_APP_NAME: my-genie-${env}
